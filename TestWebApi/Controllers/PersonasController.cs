@@ -30,16 +30,16 @@ namespace TestWebApi.Controllers
             return Ok(personas);
         }
 
-        //[HttpGet("{id}")]
-        //public ActionResult<Persona> Get(int id)
-        //{
-        //    var persona = personas.Find(p => p.Id == id);
-        //    if (persona == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(persona);
-        //}
+        [HttpGet("{id}")]
+        public ActionResult<Persona> Get(int id)
+        {
+            var persona = personas.Find(p => p.Id == id);
+            if (persona == null)
+            {
+                return NotFound();
+            }
+            return Ok(persona);
+        }
 
         [HttpPost]
         public ActionResult<Persona> Post(Persona persona)
@@ -63,16 +63,16 @@ namespace TestWebApi.Controllers
             return NoContent();
         }
 
-        //[HttpDelete("{id}")]
-        //public IActionResult Delete(int id)
-        //{
-        //    var persona = personas.Find(p => p.Id == id);
-        //    if (persona == null)
-        //    {
-        //        return NotFound("La persona no existe.");
-        //    }
-        //    personas.Remove(persona);
-        //    return NoContent();
-        //}
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var persona = personas.Find(p => p.Id == id);
+            if (persona == null)
+            {
+                return NotFound("La persona no existe.");
+            }
+            personas.Remove(persona);
+            return NoContent();
+        }
     }
 }
